@@ -16,14 +16,14 @@ Here is the flow of the workflow graph inside `app/agent.py`:
 
 ```mermaid
 flowchart TD
-    START([START]) --> HITL_Input[hitl_input_node\nAsk Mood & Time]
-    HITL_Input --> HITL_Choice[hitl_choice_node\nAsk Book or Movie]
-    HITL_Choice --> SecCheck{security_checkpoint\nPII / Injection / Adult Filter}
+    START([START]) --> HITL_Input["hitl_input_node<br/>Ask Mood & Time"]
+    HITL_Input --> HITL_Choice["hitl_choice_node<br/>Ask Book or Movie"]
+    HITL_Choice --> SecCheck{"security_checkpoint<br/>PII / Injection / Adult Filter"}
     
-    SecCheck -- SECURITY_EVENT --> Finalize[finalize_output\nShow Block Msg]
-    SecCheck -- SAFE --> RunCurator[run_media_curator\nQuery LLM with MCP Tools]
+    SecCheck -- SECURITY_EVENT --> Finalize["finalize_output<br/>Show Block Msg"]
+    SecCheck -- SAFE --> RunCurator["run_media_curator<br/>Query LLM with MCP Tools"]
     
-    RunCurator --> LoopPrompt{loop_prompt_node\nAsk for Another?}
+    RunCurator --> LoopPrompt{"loop_prompt_node<br/>Ask for Another?"}
     
     LoopPrompt -- LOOP --> HITL_Choice
     LoopPrompt -- END --> Finalize
@@ -46,10 +46,10 @@ flowchart TD
 ## 🖼️ Assets
 
 ### Architecture Diagram
-![Architecture Diagram](assets/architecture_diagram.png)
+![Architecture Diagram](assets/architecture_diagram.jpg)
 
 ### Cover Page Banner
-![Cover Page Banner](assets/cover_page_banner.png)
+![Cover Page Banner](assets/cover_page_banner.jpg)
 
 ---
 

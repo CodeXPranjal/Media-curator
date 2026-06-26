@@ -5,11 +5,11 @@ Are you tired of spending more time scrolling through streaming apps and bookshe
 Media Curator is built on Google's Agent Development Kit 2.0 framework and belongs to the Concierge track. It serves as a personal coordinator, asking you for your current mood and available time, and delivering exactly one highly relevant media suggestion.
 
 [0:40 — SHOW THE BANNER]
-(show assets/cover_page_banner.png)
+(show assets/cover_page_banner.jpg)
 As you can see from our cover banner, the project focuses on delivering secure, automated, and intelligent recommendations to create a tailored digital concierge experience. (pause)
 
 [1:00 — ARCHITECTURE]
-(show assets/architecture_diagram.png)
+(show assets/architecture_diagram.jpg)
 Let's walk through the architecture behind the scenes.
 First, the workflow starts with the hitl_input_node and hitl_choice_node, which pause execution to ask for the user's mood, time, and media format preference. (pause)
 Next, the payload is sent through the security_checkpoint node. If it passes validation, it directs the flow to run_media_curator. (pause)
