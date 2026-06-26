@@ -16,19 +16,19 @@ Here is the flow of the workflow graph inside `app/agent.py`:
 
 ```mermaid
 flowchart TD
-    START([START]) --> HITL_Input["hitl_input_node<br/>Ask Mood & Time"]
-    HITL_Input --> HITL_Choice["hitl_choice_node<br/>Ask Book or Movie"]
-    HITL_Choice --> SecCheck{"security_checkpoint<br/>PII / Injection / Adult Filter"}
+    START[START] --> HITL_Input[hitl_input_node - Ask Mood and Time]
+    HITL_Input --> HITL_Choice[hitl_choice_node - Ask Book or Movie]
+    HITL_Choice --> SecCheck[security_checkpoint - PII, Injection, and Adult Filter]
     
-    SecCheck -- SECURITY_EVENT --> Finalize["finalize_output<br/>Show Block Msg"]
-    SecCheck -- SAFE --> RunCurator["run_media_curator<br/>Query LLM with MCP Tools"]
+    SecCheck -- SECURITY_EVENT --> Finalize[finalize_output - Show Block Message]
+    SecCheck -- SAFE --> RunCurator[run_media_curator - Query LLM with MCP Tools]
     
-    RunCurator --> LoopPrompt{"loop_prompt_node<br/>Ask for Another?"}
+    RunCurator --> LoopPrompt[loop_prompt_node - Ask for Another]
     
     LoopPrompt -- LOOP --> HITL_Choice
     LoopPrompt -- END --> Finalize
     
-    Finalize --> END([END])
+    Finalize --> END[END]
 
     subgraph MCP Server Tools
         search_goodreads
@@ -36,9 +36,9 @@ flowchart TD
         check_streaming_availability
     end
     
-    RunCurator -.-> search_goodreads
-    RunCurator -.-> search_tmdb
-    RunCurator -.-> check_streaming_availability
+    RunCurator --> search_goodreads
+    RunCurator --> search_tmdb
+    RunCurator --> check_streaming_availability
 ```
 
 ---
