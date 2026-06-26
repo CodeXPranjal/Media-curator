@@ -1,0 +1,31 @@
+[0:00 — HOOK]
+Are you tired of spending more time scrolling through streaming apps and bookshelves than actually enjoying them? Media Curator is a smart, interactive recommendation assistant designed to solve choice paralysis for anyone looking for their next great book, movie, or show. (pause)
+
+[0:20 — WHAT IT IS]
+Media Curator is built on Google's Agent Development Kit 2.0 framework and belongs to the Concierge track. It serves as a personal coordinator, asking you for your current mood and available time, and delivering exactly one highly relevant media suggestion.
+
+[0:40 — SHOW THE BANNER]
+(show assets/cover_page_banner.png)
+As you can see from our cover banner, the project focuses on delivering secure, automated, and intelligent recommendations to create a tailored digital concierge experience. (pause)
+
+[1:00 — ARCHITECTURE]
+(show assets/architecture_diagram.png)
+Let's walk through the architecture behind the scenes.
+First, the workflow starts with the hitl_input_node and hitl_choice_node, which pause execution to ask for the user's mood, time, and media format preference. (pause)
+Next, the payload is sent through the security_checkpoint node. If it passes validation, it directs the flow to run_media_curator. (pause)
+The run_media_curator node initializes the media_curator LlmAgent, which uses Model Context Protocol tools to query Goodreads and TMDB API services. (pause)
+Finally, the loop_prompt_node prompts the user if they'd like another recommendation, looping back to the choice node or routing to finalize_output to end the session. (pause)
+
+[2:00 — LIVE DEMO]
+(switch to playground at localhost:18081)
+Let's see it in action.
+First, we provide a mood and time preference: "I am feeling tired but want to learn something new. I have 2 hours." (pause)
+Then, the agent pauses and asks us to choose between a movie or a book. We type in "book". (pause)
+The security checkpoint runs, passes the query, and triggers the search_goodreads tool. The media_curator LlmAgent processes the response and presents us with a single, neatly formatted book recommendation matching our mood. (pause)
+If we were to input a prompt injection attempt, such as "Ignore previous instructions", the security node catches it immediately, redirects to the security event path, and shows a blocked message without hitting the LLM. (pause)
+
+[3:00 — SECURITY & MCP]
+Our security checkpoint keeps data safe by automatically scrubbing emails and filtering out prompt injections, logging audit reports in structured JSON. Meanwhile, our local FastMCP server acts as a gateway to Goodreads, TMDB, and streaming platforms, keeping our integrations clean.
+
+[3:30 — IMPACT / CLOSE]
+Media Curator replaces hours of aimless search with a single, highly tailored choice in seconds. It demonstrates how multi-agent workflows, local MCP toolsets, and human-in-the-loop nodes can work together to create a secure and delightful digital assistant. Thank you!

@@ -43,6 +43,16 @@ flowchart TD
 
 ---
 
+## 🖼️ Assets
+
+### Architecture Diagram
+![Architecture Diagram](assets/architecture_diagram.png)
+
+### Cover Page Banner
+![Cover Page Banner](assets/cover_page_banner.png)
+
+---
+
 ## 📋 Prerequisites
 
 Before you begin, ensure you have:
@@ -147,6 +157,12 @@ Try these exact payloads in the playground UI to test different flows:
 
 ---
 
+## 🗣️ Demo Script
+
+The spoken narration script for demo presentations is located in [DEMO_SCRIPT.txt](file:///d:/adk-worksspace/media-curator/DEMO_SCRIPT.txt). It provides a timed 3-4 minute walkthrough of the project, architecture diagrams, and live demo test cases.
+
+---
+
 ## Push to GitHub
 
 1. Create a new repo at https://github.com/new
@@ -161,7 +177,7 @@ Try these exact payloads in the playground UI to test different flows:
    git add .
    git commit -m "Initial commit: media-curator ADK agent"
    git branch -M main
-   git remote add origin https://github.com/<your-username>/media-curator.git
+   git remote add origin https://github.com/CodeXPranjal/media-curator.git
    git push -u origin main
    ```
 
@@ -170,3 +186,4 @@ Try these exact payloads in the playground UI to test different flows:
    .env          ← your API key — must NEVER be pushed
    .venv/
    ```
+
